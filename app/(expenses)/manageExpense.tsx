@@ -1,12 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 const ManageExpense = ()=> {
   
   return (
    <View style={styles.container}>
-      <Text>
-        Manage expense
-      </Text>
+     
    </View>
   )
 }
