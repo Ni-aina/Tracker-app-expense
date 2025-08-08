@@ -12,20 +12,20 @@ const SreensLayout = () => {
                     marginTop: 10
                 },
                 tabBarStyle: {
-                    backgroundColor: Colors.background,
+                    backgroundColor: Colors.primary,
                     bottom: 40,
                     margin: 10,
                     height: 80,
                     borderRadius: 20
                 },
                 headerStyle: {
-                    backgroundColor: Colors.background
+                    backgroundColor: Colors.primary
                 },
                 headerTitleStyle: {
-                    color: Colors.text
+                    color: "white"
                 },
                 tabBarActiveTintColor: Colors.active,
-                tabBarInactiveTintColor: Colors.text
+                tabBarInactiveTintColor: "white"
             }}
         >
             <Tabs.Screen
@@ -64,6 +64,6 @@ export default SreensLayout;
 const styles = StyleSheet.create({
     icons: {
         fontSize: 30,
-        color: Colors.icons
+        color: "white"
     }
 })

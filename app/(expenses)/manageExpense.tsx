@@ -1,11 +1,19 @@
-import { StyleSheet, View } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import { StyleSheet, Text, View } from 'react-native';
 
-const ManageExpense = ()=> {
-  
+const ManageExpense = () => {
+
   return (
-   <View style={styles.container}>
-     
-   </View>
+    <View style={styles.container}>
+      <Text style={{
+        fontSize: 16,
+        color: Colors.primary,
+        textTransform: "uppercase",
+        fontWeight: "bold"
+      }}>
+        Manage your expenses here
+      </Text>
+    </View>
   )
 }
 
