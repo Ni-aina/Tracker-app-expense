@@ -32,7 +32,7 @@ export const DUMMY_EXPENSES = [
     {
         id: 'e6',
         description: 'A laptop',
-        amount: 999.99,
+        amount: 899.99,
         date: new Date('2025-01-12')
     },
     {

@@ -1,3 +1,4 @@
+import Icons from "@/components/ui/Icons";
 import { Colors } from "@/constants/Colors";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
@@ -9,7 +10,7 @@ const SreensLayout = () => {
         <Tabs
             screenOptions={{
                 tabBarLabelStyle: {
-                    marginTop: 10
+                    marginTop: 5
                 },
                 tabBarStyle: {
                     backgroundColor: Colors.primary,
@@ -18,6 +19,9 @@ const SreensLayout = () => {
                     height: 80,
                     borderRadius: 20
                 },
+                tabBarIconStyle: {
+                    marginTop: 8
+                },
                 headerStyle: {
                     backgroundColor: Colors.primary
                 },
@@ -25,7 +29,8 @@ const SreensLayout = () => {
                     color: "white"
                 },
                 tabBarActiveTintColor: Colors.active,
-                tabBarInactiveTintColor: "white"
+                tabBarInactiveTintColor: "white",
+                headerRight: () => <Icons name="add" size={30} color="white" />
             }}
         >
             <Tabs.Screen
