@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
+import { ScreenHistoryProvider } from '@/context/screenHistory';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 const RootLayout = ()=> {
@@ -19,10 +20,12 @@ const RootLayout = ()=> {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(expenses)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <ScreenHistoryProvider>
+        <Stack>
+          <Stack.Screen name="(expenses)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </ScreenHistoryProvider>
       <StatusBar style="light" />
     </ThemeProvider>
   )

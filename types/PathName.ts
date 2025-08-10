@@ -1,0 +1,1 @@
+export type PathName = "/" | "manageExpense" | "/recentExpenses";

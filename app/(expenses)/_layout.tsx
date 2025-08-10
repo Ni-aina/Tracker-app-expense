@@ -1,14 +1,27 @@
 import Icons from "@/components/ui/Icons";
 import { Colors } from "@/constants/Colors";
+import { ScreenHistoryContext } from "@/context/screenHistory";
+import { PathName } from "@/types/PathName";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Tabs } from "expo-router";
+import { Tabs, usePathname } from "expo-router";
+import { useContext, useEffect } from "react";
 import { StyleSheet } from "react-native";
 
 const SreensLayout = () => {
+    const screenHistory = useContext(ScreenHistoryContext);
+    const lastTab = screenHistory?.lastTab || "index";
+    const setLastTab = screenHistory?.setLastTab;
+    const pathname = usePathname();
+
+    useEffect(() => {
+        if (pathname !== "/manageExpense" && setLastTab) {
+            setLastTab(pathname.slice(1) as PathName);
+        }
+    }, [pathname]);
 
     return (
         <Tabs
-            screenOptions={{
+            screenOptions={({ navigation })=> ({
                 tabBarLabelStyle: {
                     marginTop: 5
                 },
@@ -30,8 +43,13 @@ const SreensLayout = () => {
                 },
                 tabBarActiveTintColor: Colors.active,
                 tabBarInactiveTintColor: "white",
-                headerRight: () => <Icons name="add" size={30} color="white" />
-            }}
+                headerRight: () => <Icons 
+                    name="add" 
+                    size={30} 
+                    color="white"
+                    onPress={() => navigation.navigate("manageExpense")}
+                />
+            })}
         >
             <Tabs.Screen
                 name="index"
@@ -44,12 +62,18 @@ const SreensLayout = () => {
             />
             <Tabs.Screen
                 name="manageExpense"
-                options={{
+                options={({ navigation }) => ({
                     title: "Manage Expense",
                     tabBarIcon: ({ focused }) => <MaterialIcons name="store"
                         style={[styles.icons, focused ? { color: Colors.active } : null]}
+                    />,
+                    headerLeft: () => <Icons 
+                        name="arrow-back" 
+                        size={30}
+                        color="white"
+                        onPress={() => navigation.navigate(lastTab)}
                     />
-                }}
+                })}
             />
             <Tabs.Screen
                 name="recentExpenses"
