@@ -21,7 +21,7 @@ const SreensLayout = () => {
 
     return (
         <Tabs
-            screenOptions={({ navigation })=> ({
+            screenOptions={({ navigation }) => ({
                 tabBarLabelStyle: {
                     marginTop: 5
                 },
@@ -43,9 +43,9 @@ const SreensLayout = () => {
                 },
                 tabBarActiveTintColor: Colors.active,
                 tabBarInactiveTintColor: "white",
-                headerRight: () => <Icons 
-                    name="add" 
-                    size={30} 
+                headerRight: () => <Icons
+                    name="add"
+                    size={30}
                     color="white"
                     onPress={() => navigation.navigate("manageExpense")}
                 />
@@ -61,21 +61,6 @@ const SreensLayout = () => {
                 }}
             />
             <Tabs.Screen
-                name="manageExpense"
-                options={({ navigation }) => ({
-                    title: "Manage Expense",
-                    tabBarIcon: ({ focused }) => <MaterialIcons name="store"
-                        style={[styles.icons, focused ? { color: Colors.active } : null]}
-                    />,
-                    headerLeft: () => <Icons 
-                        name="arrow-back" 
-                        size={30}
-                        color="white"
-                        onPress={() => navigation.navigate(lastTab)}
-                    />
-                })}
-            />
-            <Tabs.Screen
                 name="recentExpenses"
                 options={{
                     title: "Recent Expenses",
@@ -83,6 +68,21 @@ const SreensLayout = () => {
                         style={[styles.icons, focused ? { color: Colors.active } : null]}
                     />
                 }}
+            />
+            <Tabs.Screen
+                name="manageExpense"
+                options={({ navigation }) => ({
+                    title: "Manage Expense",
+                    tabBarIcon: ({ focused }) => <MaterialIcons name="store"
+                        style={[styles.icons, focused ? { color: Colors.active } : null]}
+                    />,
+                    headerLeft: () => <Icons
+                        name="arrow-back"
+                        size={30}
+                        color="white"
+                        onPress={() => navigation.navigate(lastTab)}
+                    />
+                })}
             />
         </Tabs>
     )
